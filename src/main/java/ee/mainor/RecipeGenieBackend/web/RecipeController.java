@@ -1,6 +1,7 @@
 package ee.mainor.RecipeGenieBackend.web;
 
 import ee.mainor.RecipeGenieBackend.dto.AddRecipeRequest;
+import ee.mainor.RecipeGenieBackend.dto.FilterRecipesRequest;
 import ee.mainor.RecipeGenieBackend.dto.RecipeDto;
 import ee.mainor.RecipeGenieBackend.service.RecipeService;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +29,10 @@ public class RecipeController {
     @PutMapping("/{id}")
     public RecipeDto update(@PathVariable Long id, @RequestBody RecipeDto request){
         return recipeService.updateRecipe(id, request);
+    }
+
+    @GetMapping("/filter")
+    public List<RecipeDto> filterRecipes(@RequestParam int lvl) {
+        return recipeService.filterRecipesByLvl(lvl);
     }
 }

@@ -5,4 +5,6 @@ import lombok.Data;
 public class AddRecipeRequest {
     private String name;
     private String description;
+    private String ingredients;
+    private int lvl;
 }
